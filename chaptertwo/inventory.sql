@@ -34,6 +34,19 @@ LIKE 'Half-Dome%';
 2.32. select distinct SKU,SKU_Description FROM INVENTORY where SKU_Description
 LIKE '%Climb%';
 
-2.33. 
+2.33. select distinct SKU,SKU_Description FROM INVENTORY where SKU_Description
+LIKE '%_d%';
+
+2.34. select MIN(QuantityOnHand) AS  MINQ,
+    -> AVG(QuantityOnHand) AS AVGQ,
+    -> COUNT(QuantityOnHand) AS COUNTQ,
+    -> MAX(QuantityOnHand) AS MAXQ,
+    -> SUM(QuantityOnHand) AS SUMQ
+    -> from INVENTORY;
+    
+2.35. select WarehouseID, SUM(QuantityOnHand) AS TotalItemsOnHand from INVENTORY GROUP by WarehouseID ORDER by TotalItemsOnHand DESC;
+
+2.36. 
+
 
 
