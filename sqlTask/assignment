@@ -1,0 +1,12 @@
+1. select Name, Rating from Drivers Order By Rating Desc Limit 5;
+
+SELECT d.DriverID, d.Name, SUM(p.Amount) AS TotalRevenue
+FROM Drivers d
+JOIN Rides r ON d.DriverID = r.DriverID
+JOIN Payments p ON r.RideID = p.RideID
+JOIN Riders ri ON r.RiderID = ri.RiderID
+WHERE ri.City = 'Lagos'
+GROUP BY d.DriverID, d.Name
+ORDER BY TotalRevenue DESC
+LIMIT 1;
+
